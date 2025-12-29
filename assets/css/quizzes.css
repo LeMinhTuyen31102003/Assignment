@@ -1,0 +1,124 @@
+/* Quizzes Page Styles */
+
+/* Take a Quiz Section */
+.take-quiz-section {
+    padding: 140px 0 60px 0;
+    background: white;
+}
+
+.take-quiz-section .section-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+.quiz-code-container {
+    max-width: 700vh;
+    margin: 0 auto;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.quiz-code-input {
+    flex: 1;
+    padding: 14px 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.quiz-code-input::placeholder {
+    color: #999;
+}
+
+.quiz-code-input:focus {
+    border-color: #4DA6FF;
+    box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.1);
+}
+
+.btn-take-quiz {
+    padding: 14px 32px;
+    background: #4DA6FF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.btn-take-quiz:hover {
+    background: #3d8fe6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(77, 166, 255, 0.4);
+}
+
+.btn-take-quiz:active {
+    transform: translateY(0);
+}
+
+/* Quizzes Section Adjustments */
+.quizzes-section {
+    padding: 60px 0 80px;
+    background: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .take-quiz-section {
+        padding: 40px 0;
+    }
+
+    .take-quiz-section .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .quiz-code-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .quiz-code-input,
+    .btn-take-quiz {
+        width: 100%;
+    }
+
+    .quizzes-section {
+        padding: 40px 0 60px;
+    }
+}
+
+/* Loading state for Take Quiz button */
+.btn-take-quiz.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn-take-quiz.loading::after {
+    content: '...';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0%, 20% {
+        content: '';
+    }
+    40% {
+        content: '.';
+    }
+    60% {
+        content: '..';
+    }
+    80%, 100% {
+        content: '...';
+    }
+}

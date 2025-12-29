@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Management - QuizApp</title>
+    <link rel="icon" href="../assets/images/favicon-16x16.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/user-management.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../home/home.html" class="logo">
+                    <img src="../assets/images/home/logo.png" alt="Logo">
+                    <span>Quizzes</span>
+                </a>
+                <nav class="nav-menu">
+                    <a href="../home/home.html">Home</a>
+                    <a href="../quizzes/quizzes.html">Quizzes</a>
+                    <a href="../management/management.html">Management</a>
+                    <a href="../home/about.html">About</a>
+                    <a href="../home/contact.html">Contact</a>
+                </nav>
+                <div class="auth-menu">
+                    <a href="../auth/login.html" class="login-btn">Login</a>
+                    <a href="../auth/register.html" class="register-btn">Register</a>
+                </div>
+                <div class="user-menu" style="display: none;">
+                    <div class="user-dropdown">
+                        <button class="user-avatar" id="userMenuBtn">
+                            <img src="../assets/images/user/admin.png" alt="User Avatar" id="userAvatar">
+                        </button>
+                        <div class="user-dropdown-menu" id="userDropdownMenu">
+                            <a href="../profile/profile.html">Tuyên Lê</a>
+                            <a href="../profile/change-password.html">Change Password</a>
+                            <a href="#" id="logoutBtn">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3 class="sidebar-title">Menu</h3>
+            <nav class="sidebar-menu">
+                <a href="quiz-management.html" class="sidebar-item active">
+                    <img src="../assets/images/user-management/Frame_1482_1952.png" alt="Quiz" width="20" height="20">
+                    Quiz Management
+                </a>
+                <a href="question-management.html" class="sidebar-item">
+                    <img src="../assets/images/user-management/Frame_1482_1956.png" alt="Question" width="20" height="20">
+                    Question Management
+                </a>
+                <a href="user-management.html" class="sidebar-item">
+                    <img src="../assets/images/user-management/Frame_1482_1960.png" alt="User" width="20" height="20">
+                    User Management
+                </a>
+                <a href="role-management.html" class="sidebar-item">
+                    <img src="../assets/images/user-management/Frame_1482_1964.png" alt="Role" width="20" height="20">
+                    Role Management
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <h1 class="page-title">Quiz Management</h1>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-form">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Name</label>
+                            <input type="text" placeholder="Enter role name to search" id="searchName">
+                        </div>
+                        <div class="form-field">
+                            <label>Status</label>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="statusActive">
+                                <label for="statusActive">Active</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-create" id="btnCreate">
+                            <img src="../assets/images/user-management/Frame_1482_3473.png" alt="Create" width="16" height="16">
+                            Create
+                        </button>
+                        <div class="action-group">
+                            <button class="btn-clear" id="btnClear">
+                                <img src="../assets/images/user-management/Frame_1482_3362.png" alt="Clear" width="16" height="16">
+                                Clear
+                            </button>
+                            <button class="btn-search" id="btnSearch">
+                                <img src="../assets/images/user-management/Frame_1482_3486.png" alt="Search" width="16" height="16">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz List Table -->
+            <div class="table-section">
+                <h2 class="section-title">Quiz List</h2>
+                <div class="table-wrapper">
+                    <table class="data-table quiz-table">
+                        <thead>
+                            <tr>
+                                <th>Header</th>
+                                <th>Description</th>
+                                <th>Description</th>
+                                <th>Description</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quizTableBody">
+                            <tr>
+                                <td class="quiz-thumbnail">
+                                    <img src="../assets/images/home/quiz1.png" alt="Quiz" width="80" height="60">
+                                </td>
+                                <td>Capitals of Country</td>
+                                <td>Test your knowledge of country capitals</td>
+                                <td>15m</td>
+                                <td>7</td>
+                                <td>Yes</td>
+                                <td class="action-buttons">
+                                    <button class="btn-edit" title="Edit">
+                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
+                                    </button>
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="quiz-thumbnail">
+                                    <img src="../assets/images/home/quiz2.png" alt="Quiz" width="80" height="60">
+                                </td>
+                                <td>Inventors and Inventions</td>
+                                <td>Test your knowledge of inventors and their inventions</td>
+                                <td>20m</td>
+                                <td>10</td>
+                                <td>Yes</td>
+                                <td class="action-buttons">
+                                    <button class="btn-edit" title="Edit">
+                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
+                                    </button>
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="quiz-thumbnail">
+                                    <img src="../assets/images/home/quiz3.png" alt="Quiz" width="80" height="60">
+                                </td>
+                                <td>Countries of the World</td>
+                                <td>Test your knowledge of countries</td>
+                                <td>15m</td>
+                                <td>10</td>
+                                <td>Yes</td>
+                                <td class="action-buttons">
+                                    <button class="btn-edit" title="Edit">
+                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
+                                    </button>
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-footer">
+                    <div class="pagination-info">
+                        <span>Items per page:</span>
+                        <select id="itemsPerPage">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
+                    <div class="pagination">
+                        <button class="page-btn" id="firstPage">
+                            <img src="../assets/images/user-management/Frame_1482_5089.png" alt="First" width="16" height="16">
+                        </button>
+                        <button class="page-btn" id="prevPage">
+                            <img src="../assets/images/user-management/Frame_1482_5093.png" alt="Previous" width="16" height="16">
+                        </button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn" id="nextPage">
+                            <img src="../assets/images/user-management/Frame_1482_5109.png" alt="Next" width="16" height="16">
+                        </button>
+                        <button class="page-btn" id="lastPage">
+                            <img src="../assets/images/user-management/Frame_1482_5113.png" alt="Last" width="16" height="16">
+                        </button>
+                    </div>
+                    <div class="pagination-summary">1-10 of 32</div>
+                </div>
+            </div>
+
+            <!-- Add Quiz Form -->
+            <div class="form-section">
+                <h2 class="section-title">Add Quiz</h2>
+                <form id="addQuizForm" class="user-form">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label>Title</label>
+                            <input type="text" placeholder="Enter quiz title" required>
+                        </div>
+                        <div class="form-field">
+                            <label>Description</label>
+                            <input type="text" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-field">
+                            <label>Duration</label>
+                            <input type="text" placeholder="Enter quiz duration" required>
+                        </div>
+                        <div class="form-field">
+                            <label>Thumbnail URL</label>
+                            <input type="text" placeholder="Enter quiz thumbnail URL" required>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label>Status</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="quizStatusActive">
+                            <label for="quizStatusActive">Active</label>
+                        </div>
+                    </div>
+                    <div class="form-actions-bottom">
+                        <button type="button" class="btn-show-questions">
+                            <img src="../assets/images/user-management/Frame_1482_3473.png" alt="Show" width="16" height="16">
+                            Show Questions
+                        </button>
+                        <div class="action-group">
+                            <button type="button" class="btn-cancel" id="btnCancelQuiz">
+                                <img src="../assets/images/user-management/Frame_1482_3362.png" alt="Cancel" width="16" height="16">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn-save">
+                                <img src="../assets/images/user-management/Frame_1482_3368.png" alt="Save" width="16" height="16">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Question List Table -->
+            <div class="table-section">
+                <h2 class="section-title">Question List</h2>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Content</th>
+                                <th>Type</th>
+                                <th>Answers</th>
+                                <th>Order</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="questionTableBody">
+                            <tr>
+                                <td>Who is the inventor of the airplane?</td>
+                                <td>MultipleChoice</td>
+                                <td>4</td>
+                                <td>1</td>
+                                <td>Yes</td>
+                                <td class="action-buttons">
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Who is the inventor of the World Wide Web?</td>
+                                <td>MultipleChoice</td>
+                                <td>4</td>
+                                <td>2</td>
+                                <td>Yes</td>
+                                <td class="action-buttons">
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Where is Viet Nam?</td>
+                                <td>MultipleChoice</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>Yes</td>
+                                <td class="action-buttons">
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>What is the capital of France?</td>
+                                <td>SingleChoice</td>
+                                <td>4</td>
+                                <td>4</td>
+                                <td>cell</td>
+                                <td class="action-buttons">
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Who is the inventor of the alternating current?</td>
+                                <td>MultipleChoice</td>
+                                <td>4</td>
+                                <td>5</td>
+                                <td>cell</td>
+                                <td class="action-buttons">
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Where is Australia?</td>
+                                <td>MultipleChoice</td>
+                                <td>4</td>
+                                <td>6</td>
+                                <td>cell</td>
+                                <td class="action-buttons">
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Who is the inventor of the ATM?</td>
+                                <td>MultipleChoice</td>
+                                <td>4</td>
+                                <td>7</td>
+                                <td>cell</td>
+                                <td class="action-buttons">
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Where is France?</td>
+                                <td>MultipleChoice</td>
+                                <td>4</td>
+                                <td>8</td>
+                                <td>cell</td>
+                                <td class="action-buttons">
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Where is the United States?</td>
+                                <td>MultipleChoice</td>
+                                <td>4</td>
+                                <td>9</td>
+                                <td>cell</td>
+                                <td class="action-buttons">
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Who is the inventor of the washing machine?</td>
+                                <td>MultipleChoice</td>
+                                <td>4</td>
+                                <td>10</td>
+                                <td>cell</td>
+                                <td class="action-buttons">
+                                    <button class="btn-delete" title="Delete">
+                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-actions-bottom">
+                    <button type="button" class="btn-add">
+                        <img src="../assets/images/user-management/Frame_1482_3473.png" alt="Add" width="16" height="16">
+                        Add
+                    </button>
+                    <button type="button" class="btn-save">
+                        <img src="../assets/images/user-management/Frame_1482_3368.png" alt="Save" width="16" height="16">
+                        Save
+                    </button>
+                </div>
+            </div>
+
+            <!-- Add Quiz Section -->
+            <div class="form-section">
+                <h2 class="section-title">Add Quiz</h2>
+                <form class="user-form">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label>Question</label>
+                            <select>
+                                <option>Select Question Type</option>
+                                <option>MultipleChoice</option>
+                                <option>SingleChoice</option>
+                                <option>TrueFalse</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label>Order</label>
+                            <input type="text" placeholder="Enter order of question in quiz">
+                        </div>
+                    </div>
+                    <div class="form-actions-bottom">
+                        <button type="button" class="btn-cancel">
+                            <img src="../assets/images/user-management/Frame_1482_3362.png" alt="Cancel" width="16" height="16">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn-add">
+                            <img src="../assets/images/user-management/Frame_1482_3473.png" alt="Add" width="16" height="16">
+                            Add
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="management-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../home/home.html" class="logo">
+                        <img src="../assets/images/home/logo.png" alt="Logo">
+                        <span>Quizzes</span>
+                    </a>
+                    <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="footer-menu">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="../home/home.html">Home</a></li>
+                        <li><a href="../quizzes/quizzes.html">Quizzes</a></li>
+                        <li><a href="../home/about.html">About</a></li>
+                        <li><a href="../home/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>
+                            <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16">
+                            <a href="mailto:company123@gmail.com">company123@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16">
+                            <a href="tel:+84643931378">+84 643 931 3786</a>
+                        </li>
+                        <li>
+                            <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16">
+                            <a href="https://maps.google.com/?q=123+Xuan+Thuy+Street,+Cau+Giay,+Ha+Noi+Viet+Nam" target="_blank">123 Xuan Thuy Street, Cau Giay, Ha Noi Viet Nam</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; May 2024 - ReactJS 19</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/home-auth.js"></script>
+</body>
+</html>

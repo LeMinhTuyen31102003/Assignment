@@ -1,0 +1,103 @@
+/* Management Page Styles */
+.management-main {
+    padding: 80px 0 60px;
+    min-height: calc(100vh - 200px);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.page-heading {
+    font-size: 42px;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.page-description {
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.management-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.management-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+}
+
+.management-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(77, 166, 255, 0.25);
+    border-color: #4DA6FF;
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4DA6FF 0%, #3d8fe6 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    transition: all 0.3s;
+}
+
+.management-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.card-icon img {
+    filter: brightness(0) invert(1);
+}
+
+.management-card h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.management-card p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .management-main {
+        padding: 60px 0 40px;
+    }
+
+    .page-heading {
+        font-size: 32px;
+    }
+
+    .page-description {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .management-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .management-card {
+        padding: 30px 20px;
+    }
+}

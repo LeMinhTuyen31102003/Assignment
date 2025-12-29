@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizApp</title>
+    <link rel="icon" href="../assets/images/favicon-16x16.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="home.html" class="logo">
+                    <img src="../assets/images/home/logo.png" alt="Logo">
+                    <span>Quizzes</span>
+                </a>
+                <nav class="nav-menu">
+                    <a href="home.html" class="active">Home</a>
+                    <a href="../quizzes/quizzes.html">Quizzes</a>
+                    <a href="../management/management.html">Management</a>
+                    <a href="../home/about.html">About</a>
+                    <a href="../home/contact.html">Contact</a>
+                </nav>
+                <div class="auth-menu">
+                    <a href="../auth/login.html" class="login-btn">Login</a>
+                    <a href="../auth/register.html" class="register-btn">Register</a>
+                </div>
+                <div class="user-menu" style="display: none;">
+                    <div class="user-dropdown">
+                        <button class="user-avatar" id="userMenuBtn">
+                            <img src="../assets/images/user/admin.png" alt="User Avatar" id="userAvatar">
+                        </button>
+                        <div class="user-dropdown-menu" id="userDropdownMenu">
+                            <a href="profile.html">Tuyên Lê</a>
+                            <a href="change-password.html">Change Password</a>
+                            <a href="#" id="logoutBtn">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Welcome to Quiz App</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada nunc non lacus tincidunt, nunc egestas ultrices semper, nec tincidunt nunc nunc nec libero. Nullam nec sollicitudin nunc. Nullam nec sollicitudin nunc.</p>
+                    <button class="btn-primary">Take a Quiz</button>
+                </div>
+                <div class="hero-image">
+                    <img src="../assets/images/home/quiz.png" alt="Quiz Illustration">
+                </img>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quizzes Section -->
+    <section class="quizzes-section">
+        <div class="container">
+            <h2 class="section-title">QUIZZES</h2>
+            <div class="quiz-grid">
+                <div class="quiz-card">
+                    <div class="quiz-image">
+                        <img src="../assets/images/home/quiz1.png" alt="World Map">
+                    </div>
+                    <div class="quiz-info">
+                        <div class="quiz-header">
+                            <h3>Capitals of Country</h3>
+                            <span class="duration">15m</span>
+                        </div>
+                        <p class="quiz-description">Test your knowledge of country capitals</p>
+                        <button class="btn-start">Start</button>
+                    </div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-image">
+                        <img src="../assets/images/home/quiz2.png" alt="Quiz Icons">
+                    </div>
+                    <div class="quiz-info">
+                        <div class="quiz-header">
+                            <h3>Capitals of Country</h3>
+                            <span class="duration">15m</span>
+                        </div>
+                        <p class="quiz-description">Test your knowledge of country capitals</p>
+                        <button class="btn-start">Start</button>
+                    </div>
+                </div>
+
+                <div class="quiz-card">
+                    <div class="quiz-image">
+                        <img src="../assets/images/home/quiz3.png" alt="World Map">
+                    </div>
+                    <div class="quiz-info">
+                        <div class="quiz-header">
+                            <h3>Capitals of Country</h3>
+                            <span class="duration">15m</span>
+                        </div>
+                        <p class="quiz-description">Test your knowledge of country capitals</p>
+                        <button class="btn-start">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="home.html" class="logo">
+                        <img src="../assets/images/home/logo.png" alt="Logo">
+                        <span>Quizzes</span>
+                    </a>
+                    <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+                <div class="footer-menu">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="../quizzes/quizzes.html">Quizzes</a></li>
+                        <li><a href="../home/about.html">About</a></li>
+                        <li><a href="../home/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>
+                            <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16">
+                            <a href="mailto:company123@gmail.com">company123@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16">
+                            <a href="tel:+84643931378">+84 643 931 3786</a>
+                        </li>
+                        <li>
+                            <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16">
+                            <a href="https://maps.google.com/?q=123+Xuan+Thuy+Street,+Cau+Giay,+Ha+Noi+Viet+Nam" target="_blank">123 Xuan Thuy Street, Cau Giay, Ha Noi Viet Nam</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; May 2024 - ReactJS 19</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/home-auth.js"></script>
+</body>
+</html>

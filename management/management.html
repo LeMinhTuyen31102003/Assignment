@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management - QuizApp</title>
+    <link rel="icon" href="../assets/images/favicon-16x16.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/user-management.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../home/home.html" class="logo">
+                    <img src="../assets/images/home/logo.png" alt="Logo">
+                    <span>Quizzes</span>
+                </a>
+                <nav class="nav-menu">
+                    <a href="../home/home.html">Home</a>
+                    <a href="../quizzes/quizzes.html">Quizzes</a>
+                    <a href="../management/management.html" class="active">Management</a>
+                    <a href="../home/about.html">About</a>
+                    <a href="../home/contact.html">Contact</a>
+                </nav>
+                <div class="auth-menu">
+                    <a href="../auth/login.html" class="login-btn">Login</a>
+                    <a href="../auth/register.html" class="register-btn">Register</a>
+                </div>
+                <div class="user-menu" style="display: none;">
+                    <div class="user-dropdown">
+                        <button class="user-avatar" id="userMenuBtn">
+                            <img src="../assets/images/user/admin.png" alt="User Avatar" id="userAvatar">
+                        </button>
+                        <div class="user-dropdown-menu" id="userDropdownMenu">
+                            <a href="../profile/profile.html">Tuyên Lê</a>
+                            <a href="../profile/change-password.html">Change Password</a>
+                            <a href="#" id="logoutBtn">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3 class="sidebar-title">Menu</h3>
+            <nav class="sidebar-menu">
+                <a href="quiz-management.html" class="sidebar-item">
+                    <img src="../assets/images/user-management/Frame_1482_1952.png" alt="Quiz" width="20" height="20">
+                    Quiz Management
+                </a>
+                <a href="question-management.html" class="sidebar-item">
+                    <img src="../assets/images/user-management/Frame_1482_1956.png" alt="Question" width="20" height="20">
+                    Question Management
+                </a>
+                <a href="user-management.html" class="sidebar-item">
+                    <img src="../assets/images/user-management/Frame_1482_1960.png" alt="User" width="20" height="20">
+                    User Management
+                </a>
+                <a href="role-management.html" class="sidebar-item">
+                    <img src="../assets/images/user-management/Frame_1482_1964.png" alt="Role" width="20" height="20">
+                    Role Management
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content-area">
+            <div class="management-intro">
+                <h1 class="intro-title">Welcome to Management Page</h1>
+                <p class="intro-description">
+                    This is a comprehensive management system for the Quiz application. 
+                    Please select an item from the left menu to start managing.
+                </p>
+                <div class="intro-features">
+                    <div class="feature-item">
+                        <img src="../assets/images/user-management/Frame_1482_1952.png" alt="Quiz" width="32" height="32">
+                        <h3>Quiz Management</h3>
+                        <p>Create and manage quizzes</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="../assets/images/user-management/Frame_1482_1956.png" alt="Question" width="32" height="32">
+                        <h3>Question Management</h3>
+                        <p>Manage questions and answers</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="../assets/images/user-management/Frame_1482_1960.png" alt="User" width="32" height="32">
+                        <h3>User Management</h3>
+                        <p>Manage system users</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="../assets/images/user-management/Frame_1482_1964.png" alt="Role" width="32" height="32">
+                        <h3>Role Management</h3>
+                        <p>Permissions and roles</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="management-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../home/home.html" class="logo">
+                        <img src="../assets/images/home/logo.png" alt="Logo">
+                        <span>Quizzes</span>
+                    </a>
+                    <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="footer-menu">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="../home/home.html">Home</a></li>
+                        <li><a href="../quizzes/quizzes.html">Quizzes</a></li>
+                        <li><a href="../home/about.html">About</a></li>
+                        <li><a href="../home/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>
+                            <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16">
+                            <a href="mailto:company123@gmail.com">company123@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16">
+                            <a href="tel:+84643931378">+84 643 931 3786</a>
+                        </li>
+                        <li>
+                            <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16">
+                            <a href="https://maps.google.com/?q=123+Xuan+Thuy+Street,+Cau+Giay,+Ha+Noi+Viet+Nam" target="_blank">123 Xuan Thuy Street, Cau Giay, Ha Noi Viet Nam</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; May 2024 - ReactJS 19</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/home-auth.js"></script>
+</body>
+</html>
