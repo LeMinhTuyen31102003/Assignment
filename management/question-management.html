@@ -5,39 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question Management - QuizApp</title>
     <link rel="icon" href="../assets/images/favicon-16x16.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/index.css">
-    <link rel="stylesheet" href="../assets/css/home.css">
-    <link rel="stylesheet" href="../assets/css/user-management.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .user-dropdown-menu {
+            display: none;
+        }
+        .user-dropdown-menu.show {
+            display: block;
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans text-gray-800 bg-white overflow-auto">
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="../home/home.html" class="logo">
-                    <img src="../assets/images/home/logo.png" alt="Logo">
+    <header class="bg-white shadow-md py-5 fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="flex items-center justify-between">
+                <a href="../home/home.html" class="flex items-center gap-2.5 text-xl font-semibold text-gray-800">
+                    <img src="../assets/images/home/logo.png" alt="Logo" class="w-10 h-10 object-contain">
                     <span>Quizzes</span>
                 </a>
-                <nav class="nav-menu">
-                    <a href="../home/home.html">Home</a>
-                    <a href="../quizzes/quizzes.html">Quizzes</a>
-                    <a href="../management/management.html">Management</a>
-                    <a href="../home/about.html">About</a>
-                    <a href="../home/contact.html">Contact</a>
+                <nav class="flex gap-8">
+                    <a href="../home/home.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Home</a>
+                    <a href="../quizzes/quizzes.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Quizzes</a>
+                    <a href="../management/management.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Management</a>
+                    <a href="../home/about.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">About</a>
+                    <a href="../home/contact.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Contact</a>
                 </nav>
-                <div class="auth-menu">
-                    <a href="../auth/login.html" class="login-btn">Login</a>
-                    <a href="../auth/register.html" class="register-btn">Register</a>
+                <div class="flex gap-4">
+                    <a href="../auth/login.html" class="px-5 py-2 text-gray-600 font-medium hover:text-blue-500 transition-colors">Login</a>
+                    <a href="../auth/register.html" class="px-5 py-2 bg-blue-500 text-white rounded font-medium hover:bg-blue-600 transition-colors">Register</a>
                 </div>
-                <div class="user-menu" style="display: none;">
-                    <div class="user-dropdown">
-                        <button class="user-avatar" id="userMenuBtn">
-                            <img src="../assets/images/user/admin.png" alt="User Avatar" id="userAvatar">
+                <div class="hidden">
+                    <div class="relative">
+                        <button class="w-10 h-10 rounded-full border-2 border-blue-500 cursor-pointer hover:border-blue-600 hover:scale-105 transition-all overflow-hidden p-0 bg-transparent" id="userMenuBtn">
+                            <img src="../assets/images/user/admin.png" alt="User Avatar" id="userAvatar" class="w-full h-full object-cover">
                         </button>
-                        <div class="user-dropdown-menu" id="userDropdownMenu">
-                            <a href="../profile/profile.html">Tuyên Lê</a>
-                            <a href="../profile/change-password.html">Change Password</a>
-                            <a href="#" id="logoutBtn">Logout</a>
+                        <div class="user-dropdown-menu absolute top-full mt-2.5 right-0 bg-white rounded-lg shadow-lg min-w-[180px] opacity-0 invisible translate-y-[-10px] transition-all z-50" id="userDropdownMenu">
+                            <div class="absolute top-[-8px] right-[15px] w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-b-8 border-b-white"></div>
+                            <a href="../profile/profile.html" class="block px-4 py-2.5 text-gray-600 text-sm hover:bg-gray-50 hover:text-blue-500 transition-all">Tuyên Lê</a>
+                            <a href="../profile/change-password.html" class="block px-4 py-2.5 text-gray-600 text-sm hover:bg-gray-50 hover:text-blue-500 transition-all">Change Password</a>
+                            <a href="#" id="logoutBtn" class="block px-4 py-2.5 text-red-500 text-sm border-t border-gray-200 hover:bg-red-50 transition-all">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -46,45 +53,45 @@
     </header>
 
     <!-- Main Content -->
-    <div class="main-wrapper">
+    <div class="flex flex-col min-h-screen bg-gray-50 pt-[68px]">
         <!-- Sidebar -->
-        <aside class="sidebar">
-            <h3 class="sidebar-title">Menu</h3>
-            <nav class="sidebar-menu">
-                <a href="quiz-management.html" class="sidebar-item">
-                    <img src="../assets/images/user-management/Frame_1482_1952.png" alt="Quiz" width="20" height="20">
+        <aside class="fixed left-0 top-[68px] bottom-0 w-[250px] bg-white shadow-[2px_0_8px_rgba(0,0,0,0.05)] overflow-y-auto z-10 p-8 px-5">
+            <h3 class="text-xl font-bold text-gray-800 mb-5 pl-2.5">Menu</h3>
+            <nav class="flex flex-col gap-2">
+                <a href="quiz-management.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 text-sm font-medium rounded-lg hover:bg-blue-50 hover:text-blue-500 transition-all">
+                    <img src="../assets/images/user-management/Frame_1482_1952.png" alt="Quiz" width="20" height="20" class="flex-shrink-0">
                     Quiz Management
                 </a>
-                <a href="question-management.html" class="sidebar-item active">
-                    <img src="../assets/images/user-management/Frame_1482_1956.png" alt="Question" width="20" height="20">
+                <a href="question-management.html" class="flex items-center gap-3 px-4 py-3 bg-blue-500 text-white text-sm font-medium rounded-lg">
+                    <img src="../assets/images/user-management/Frame_1482_1956.png" alt="Question" width="20" height="20" class="flex-shrink-0">
                     Question Management
                 </a>
-                <a href="user-management.html" class="sidebar-item">
-                    <img src="../assets/images/user-management/Frame_1482_1960.png" alt="User" width="20" height="20">
+                <a href="user-management.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 text-sm font-medium rounded-lg hover:bg-blue-50 hover:text-blue-500 transition-all">
+                    <img src="../assets/images/user-management/Frame_1482_1960.png" alt="User" width="20" height="20" class="flex-shrink-0">
                     User Management
                 </a>
-                <a href="role-management.html" class="sidebar-item">
-                    <img src="../assets/images/user-management/Frame_1482_1964.png" alt="Role" width="20" height="20">
+                <a href="role-management.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 text-sm font-medium rounded-lg hover:bg-blue-50 hover:text-blue-500 transition-all">
+                    <img src="../assets/images/user-management/Frame_1482_1964.png" alt="Role" width="20" height="20" class="flex-shrink-0">
                     Role Management
                 </a>
             </nav>
         </aside>
 
         <!-- Content Area -->
-        <main class="content-area">
-            <h1 class="page-title">Question Management</h1>
+        <main class="ml-[250px] flex-1 p-8 pb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Question Management</h1>
 
             <!-- Search Section -->
-            <div class="search-section">
-                <div class="search-form">
-                    <div class="form-row">
-                        <div class="form-field">
-                            <label>Name</label>
-                            <input type="text" placeholder="Enter role name to search" id="searchName">
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                <div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Name</label>
+                            <input type="text" placeholder="Enter role name to search" id="searchName" class="px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500 transition-colors">
                         </div>
-                        <div class="form-field">
-                            <label>Type</label>
-                            <select id="questionType">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Type</label>
+                            <select id="questionType" class="px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500 transition-colors">
                                 <option value="">Select item</option>
                                 <option value="MultipleChoice">MultipleChoice</option>
                                 <option value="SingleChoice">SingleChoice</option>
@@ -92,28 +99,28 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-field">
-                            <label>Status</label>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="statusActive">
-                                <label for="statusActive">Active</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Status</label>
+                            <div class="flex items-center gap-2 px-3.5 py-2.5 min-h-[42px]">
+                                <input type="checkbox" id="statusActive" class="w-4.5 h-4.5 cursor-pointer">
+                                <label for="statusActive" class="text-sm text-gray-600 cursor-pointer">Active</label>
                             </div>
                         </div>
-                        <div class="form-field"></div>
+                        <div class="flex flex-col gap-2"></div>
                     </div>
-                    <div class="form-actions">
-                        <button class="btn-create" id="btnCreate">
-                            <img src="../assets/images/user-management/Frame_1482_3473.png" alt="Create" width="16" height="16">
+                    <div class="flex justify-between items-center">
+                        <button class="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-md text-sm font-semibold cursor-pointer hover:bg-blue-600 hover:-translate-y-0.5 hover:shadow-lg transition-all" id="btnCreate">
+                            <img src="../assets/images/user-management/Frame_1482_3473.png" alt="Create" width="16" height="16" class="block">
                             Create
                         </button>
-                        <div class="action-group">
-                            <button class="btn-clear" id="btnClear">
-                                <img src="../assets/images/user-management/Frame_1482_3362.png" alt="Clear" width="16" height="16">
+                        <div class="flex gap-3">
+                            <button class="flex items-center gap-2 px-5 py-2.5 bg-white text-gray-800 border border-gray-300 rounded-md text-sm font-semibold cursor-pointer hover:bg-gray-50 transition-all" id="btnClear">
+                                <img src="../assets/images/user-management/Frame_1482_3362.png" alt="Clear" width="16" height="16" class="block">
                                 Clear
                             </button>
-                            <button class="btn-search" id="btnSearch">
-                                <img src="../assets/images/user-management/Frame_1482_3486.png" alt="Search" width="16" height="16">
+                            <button class="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-md text-sm font-semibold cursor-pointer hover:bg-blue-600 transition-all" id="btnSearch">
+                                <img src="../assets/images/user-management/Frame_1482_3486.png" alt="Search" width="16" height="16" class="block">
                                 Search
                             </button>
                         </div>
@@ -122,230 +129,250 @@
             </div>
 
             <!-- Question List Table -->
-            <div class="table-section">
-                <h2 class="section-title">Question List</h2>
-                <div class="table-wrapper">
-                    <table class="data-table">
-                        <thead>
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-5">Question List</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead class="bg-gray-50">
                             <tr>
-                                <th>Content</th>
-                                <th>Type</th>
-                                <th>Answers</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Content</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Type</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Answers</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Status</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Action</th>
                             </tr>
                         </thead>
                         <tbody id="questionTableBody">
-                            <tr>
-                                <td>Who is the inventor of the airplane?</td>
-                                <td>MultipleChoice</td>
-                                <td>4</td>
-                                <td>Yes</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Who is the inventor of the airplane?</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">MultipleChoice</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">4</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Yes</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Who is the inventor of the World Wide Web?</td>
-                                <td>MultipleChoice</td>
-                                <td>4</td>
-                                <td>Yes</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Who is the inventor of the World Wide Web?</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">MultipleChoice</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">4</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Yes</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Where is Viet Nam?</td>
-                                <td>MultipleChoice</td>
-                                <td>4</td>
-                                <td>Yes</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Where is Viet Nam?</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">MultipleChoice</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">4</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Yes</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>What is the capital of France?</td>
-                                <td>SingleChoice</td>
-                                <td>4</td>
-                                <td>cell</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">What is the capital of France?</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">SingleChoice</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">4</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">cell</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Who is the inventor of the alternating current?</td>
-                                <td>MultipleChoice</td>
-                                <td>4</td>
-                                <td>cell</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Who is the inventor of the alternating current?</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">MultipleChoice</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">4</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">cell</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Where is Australia?</td>
-                                <td>MultipleChoice</td>
-                                <td>4</td>
-                                <td>cell</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Where is Australia?</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">MultipleChoice</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">4</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">cell</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Who is the inventor of the ATM?</td>
-                                <td>MultipleChoice</td>
-                                <td>4</td>
-                                <td>cell</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Who is the inventor of the ATM?</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">MultipleChoice</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">4</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">cell</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Where is France?</td>
-                                <td>MultipleChoice</td>
-                                <td>4</td>
-                                <td>cell</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Where is France?</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">MultipleChoice</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">4</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">cell</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Where is the United States?</td>
-                                <td>MultipleChoice</td>
-                                <td>4</td>
-                                <td>cell</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Where is the United States?</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">MultipleChoice</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">4</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">cell</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Who is the inventor of the washing machine?</td>
-                                <td>MultipleChoice</td>
-                                <td>4</td>
-                                <td>cell</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Who is the inventor of the washing machine?</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">MultipleChoice</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">4</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">cell</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="table-footer">
-                    <div class="pagination-info">
+                <div class="flex items-center justify-between mt-5 pt-5 border-t border-gray-300">
+                    <div class="flex items-center gap-2 text-sm text-gray-600">
                         <span>Items per page:</span>
-                        <select id="itemsPerPage">
+                        <select id="itemsPerPage" class="px-2 py-1 border border-gray-300 rounded text-sm cursor-pointer focus:outline-none focus:border-blue-500">
                             <option value="10">10</option>
                             <option value="20">20</option>
                             <option value="50">50</option>
                         </select>
                     </div>
-                    <div class="pagination">
-                        <button class="page-btn" id="firstPage">
+                    <div class="flex items-center gap-2">
+                        <button class="w-9 h-9 flex items-center justify-center bg-white border border-gray-300 rounded text-sm cursor-pointer hover:bg-gray-50 transition-all" id="firstPage">
                             <img src="../assets/images/user-management/Frame_1482_5089.png" alt="First" width="16" height="16">
                         </button>
-                        <button class="page-btn" id="prevPage">
+                        <button class="w-9 h-9 flex items-center justify-center bg-white border border-gray-300 rounded text-sm cursor-pointer hover:bg-gray-50 transition-all" id="prevPage">
                             <img src="../assets/images/user-management/Frame_1482_5093.png" alt="Previous" width="16" height="16">
                         </button>
-                        <button class="page-btn active">1</button>
-                        <button class="page-btn">2</button>
-                        <button class="page-btn">3</button>
-                        <button class="page-btn" id="nextPage">
+                        <button class="w-9 h-9 flex items-center justify-center bg-blue-500 text-white border border-blue-500 rounded text-sm font-semibold cursor-pointer">1</button>
+                        <button class="w-9 h-9 flex items-center justify-center bg-white border border-gray-300 rounded text-sm cursor-pointer hover:bg-gray-50 transition-all">2</button>
+                        <button class="w-9 h-9 flex items-center justify-center bg-white border border-gray-300 rounded text-sm cursor-pointer hover:bg-gray-50 transition-all">3</button>
+                        <button class="w-9 h-9 flex items-center justify-center bg-white border border-gray-300 rounded text-sm cursor-pointer hover:bg-gray-50 transition-all" id="nextPage">
                             <img src="../assets/images/user-management/Frame_1482_5109.png" alt="Next" width="16" height="16">
                         </button>
-                        <button class="page-btn" id="lastPage">
+                        <button class="w-9 h-9 flex items-center justify-center bg-white border border-gray-300 rounded text-sm cursor-pointer hover:bg-gray-50 transition-all" id="lastPage">
                             <img src="../assets/images/user-management/Frame_1482_5113.png" alt="Last" width="16" height="16">
                         </button>
                     </div>
-                    <div class="pagination-summary">1-10 of 32</div>
+                    <div class="text-sm text-gray-600">1-10 of 32</div>
                 </div>
             </div>
 
             <!-- Add Question Form -->
-            <div class="form-section">
-                <h2 class="section-title">Add Question</h2>
-                <form id="addQuestionForm" class="user-form">
-                    <div class="form-field">
-                        <label>Content</label>
-                        <textarea placeholder="Enter question content" rows="4" required></textarea>
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-5">Add Question</h2>
+                <form id="addQuestionForm">
+                    <div class="flex flex-col gap-2 mb-5">
+                        <label class="text-sm font-semibold text-gray-800">Content</label>
+                        <textarea placeholder="Enter question content" rows="4" required class="px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500 transition-colors"></textarea>
                     </div>
-                    <div class="form-grid">
-                        <div class="form-field">
-                            <label>Question Type</label>
-                            <select required>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Question Type</label>
+                            <select required class="px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500 transition-colors">
                                 <option value="">Select Question Type</option>
                                 <option value="MultipleChoice">MultipleChoice</option>
                                 <option value="SingleChoice">SingleChoice</option>
                                 <option value="TrueFalse">TrueFalse</option>
                             </select>
                         </div>
-                        <div class="form-field">
-                            <label>Status</label>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="questionStatusActive">
-                                <label for="questionStatusActive">Active</label>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Status</label>
+                            <div class="flex items-center gap-2 px-3.5 py-2.5 min-h-[42px]">
+                                <input type="checkbox" id="questionStatusActive" class="w-4.5 h-4.5 cursor-pointer">
+                                <label for="questionStatusActive" class="text-sm text-gray-600 cursor-pointer">Active</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-actions-bottom">
-                        <button type="button" class="btn-show-questions">
+                    <div class="flex justify-between items-center">
+                        <button type="button" class="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-md text-sm font-semibold cursor-pointer hover:bg-blue-600 hover:-translate-y-0.5 hover:shadow-lg transition-all">
                             <img src="../assets/images/user-management/Frame_1482_3473.png" alt="Show" width="16" height="16">
                             Show Answers
                         </button>
-                        <div class="action-group">
-                            <button type="button" class="btn-cancel" id="btnCancelQuestion">
+                        <div class="flex gap-3">
+                            <button type="button" class="flex items-center gap-2 px-5 py-2.5 bg-white text-gray-800 border border-gray-300 rounded-md text-sm font-semibold cursor-pointer hover:bg-gray-50 transition-all" id="btnCancelQuestion">
                                 <img src="../assets/images/user-management/Frame_1482_3362.png" alt="Cancel" width="16" height="16">
                                 Cancel
                             </button>
-                            <button type="submit" class="btn-save">
+                            <button type="submit" class="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-md text-sm font-semibold cursor-pointer hover:bg-blue-600 transition-all">
                                 <img src="../assets/images/user-management/Frame_1482_3368.png" alt="Save" width="16" height="16">
                                 Save
                             </button>
@@ -355,76 +382,84 @@
             </div>
 
             <!-- Answer List Table -->
-            <div class="table-section">
-                <h2 class="section-title">Answer List</h2>
-                <div class="table-wrapper">
-                    <table class="data-table">
-                        <thead>
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-5">Answer List</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead class="bg-gray-50">
                             <tr>
-                                <th>Content</th>
-                                <th>Is Correct</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Content</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Is Correct</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Status</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Action</th>
                             </tr>
                         </thead>
                         <tbody id="answerTableBody">
-                            <tr>
-                                <td>Wright brothers</td>
-                                <td>True</td>
-                                <td>Yes</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Wright brothers</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">True</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Yes</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Alexander Graham Bell</td>
-                                <td>False</td>
-                                <td>Yes</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Alexander Graham Bell</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">False</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Yes</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Albert Einstein</td>
-                                <td>False</td>
-                                <td>Yes</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Albert Einstein</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">False</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Yes</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Charles Babbage</td>
-                                <td>False</td>
-                                <td>cell</td>
-                                <td class="action-buttons">
-                                    <button class="btn-edit" title="Edit">
-                                        <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16">
-                                    </button>
-                                    <button class="btn-delete" title="Delete">
-                                        <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16">
-                                    </button>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Charles Babbage</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">False</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">cell</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="form-actions-bottom">
-                    <button type="button" class="btn-add">
+                <div class="flex justify-between items-center mt-5">
+                    <button type="button" class="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-md text-sm font-semibold cursor-pointer hover:bg-blue-600 hover:-translate-y-0.5 hover:shadow-lg transition-all">
                         <img src="../assets/images/user-management/Frame_1482_3473.png" alt="Add" width="16" height="16">
                         Add
                     </button>
@@ -432,35 +467,35 @@
             </div>
 
             <!-- Add Answer Form -->
-            <div class="form-section">
-                <h2 class="section-title">Add Answer</h2>
-                <form id="addAnswerForm" class="user-form">
-                    <div class="form-field">
-                        <label>Description</label>
-                        <textarea placeholder="Enter your email" rows="4" required></textarea>
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-5">Add Answer</h2>
+                <form id="addAnswerForm">
+                    <div class="flex flex-col gap-2 mb-5">
+                        <label class="text-sm font-semibold text-gray-800">Description</label>
+                        <textarea placeholder="Enter your email" rows="4" required class="px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500 transition-colors"></textarea>
                     </div>
-                    <div class="form-grid">
-                        <div class="form-field">
-                            <label>Is Correct?</label>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="isCorrect">
-                                <label for="isCorrect">Active</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Is Correct?</label>
+                            <div class="flex items-center gap-2 px-3.5 py-2.5 min-h-[42px]">
+                                <input type="checkbox" id="isCorrect" class="w-4.5 h-4.5 cursor-pointer">
+                                <label for="isCorrect" class="text-sm text-gray-600 cursor-pointer">Active</label>
                             </div>
                         </div>
-                        <div class="form-field">
-                            <label>Status</label>
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="answerStatusActive">
-                                <label for="answerStatusActive">Active</label>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Status</label>
+                            <div class="flex items-center gap-2 px-3.5 py-2.5 min-h-[42px]">
+                                <input type="checkbox" id="answerStatusActive" class="w-4.5 h-4.5 cursor-pointer">
+                                <label for="answerStatusActive" class="text-sm text-gray-600 cursor-pointer">Active</label>
                             </div>
                         </div>
                     </div>
-                    <div class="form-actions-bottom">
-                        <button type="button" class="btn-cancel">
+                    <div class="flex justify-end gap-3">
+                        <button type="button" class="flex items-center gap-2 px-5 py-2.5 bg-white text-gray-800 border border-gray-300 rounded-md text-sm font-semibold cursor-pointer hover:bg-gray-50 transition-all">
                             <img src="../assets/images/user-management/Frame_1482_3362.png" alt="Cancel" width="16" height="16">
                             Cancel
                         </button>
-                        <button type="submit" class="btn-save">
+                        <button type="submit" class="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-md text-sm font-semibold cursor-pointer hover:bg-blue-600 transition-all">
                             <img src="../assets/images/user-management/Frame_1482_3368.png" alt="Save" width="16" height="16">
                             Save
                         </button>
@@ -470,44 +505,46 @@
         </main>
 
         <!-- Footer -->
-        <footer class="management-footer">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="../home/home.html" class="logo">
-                        <img src="../assets/images/home/logo.png" alt="Logo">
-                        <span>Quizzes</span>
-                    </a>
-                    <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <footer class="ml-[250px] bg-white pt-16 pb-5 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-5">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-8">
+                    <div class="flex flex-col gap-4">
+                        <a href="../home/home.html" class="flex items-center gap-2 text-2xl font-bold text-gray-800">
+                            <img src="../assets/images/home/logo.png" alt="Logo" width="40" height="40">
+                            <span>Quizzes</span>
+                        </a>
+                        <p class="text-sm text-gray-600 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-0">Menu</h4>
+                        <ul class="flex flex-col gap-2">
+                            <li><a href="../home/home.html" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Home</a></li>
+                            <li><a href="../quizzes/quizzes.html" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Quizzes</a></li>
+                            <li><a href="../home/about.html" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">About</a></li>
+                            <li><a href="../home/contact.html" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-0">Contact</h4>
+                        <ul class="flex flex-col gap-2">
+                            <li class="flex items-start gap-2">
+                                <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16" class="mt-1">
+                                <a href="mailto:company123@gmail.com" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">company123@gmail.com</a>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16" class="mt-1">
+                                <a href="tel:+84643931378" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">+84 643 931 3786</a>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16" class="mt-1">
+                                <a href="https://maps.google.com/?q=123+Xuan+Thuy+Street,+Cau+Giay,+Ha+Noi+Viet+Nam" target="_blank" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">123 Xuan Thuy Street, Cau Giay, Ha Noi Viet Nam</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="footer-menu">
-                    <h4>Menu</h4>
-                    <ul>
-                        <li><a href="../home/home.html">Home</a></li>
-                        <li><a href="../quizzes/quizzes.html">Quizzes</a></li>
-                        <li><a href="../home/about.html">About</a></li>
-                        <li><a href="../home/contact.html">Contact</a></li>
-                    </ul>
+                <div class="text-center pt-5 border-t border-gray-200">
+                    <p class="text-sm text-gray-600">&copy; May 2024 - ReactJS 19</p>
                 </div>
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li>
-                            <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16">
-                            <a href="mailto:company123@gmail.com">company123@gmail.com</a>
-                        </li>
-                        <li>
-                            <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16">
-                            <a href="tel:+84643931378">+84 643 931 3786</a>
-                        </li>
-                        <li>
-                            <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16">
-                            <a href="https://maps.google.com/?q=123+Xuan+Thuy+Street,+Cau+Giay,+Ha+Noi+Viet+Nam" target="_blank">123 Xuan Thuy Street, Cau Giay, Ha Noi Viet Nam</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; May 2024 - ReactJS 19</p>
             </div>
         </footer>
     </div>

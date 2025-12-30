@@ -5,39 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - QuizApp</title>
     <link rel="icon" href="../assets/images/favicon-16x16.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/index.css">
-    <link rel="stylesheet" href="../assets/css/home.css">
-    <link rel="stylesheet" href="../assets/css/about.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .user-dropdown-menu {
+            display: none;
+        }
+        .user-dropdown-menu.show {
+            display: block;
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans text-gray-800 bg-white">
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="home.html" class="logo">
-                    <img src="../assets/images/home/logo.png" alt="Logo">
+    <header class="bg-white shadow-md py-5 fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="flex items-center justify-between">
+                <a href="home.html" class="flex items-center gap-2.5 text-xl font-semibold text-gray-800">
+                    <img src="../assets/images/home/logo.png" alt="Logo" class="w-10 h-10 object-contain">
                     <span>Quizzes</span>
                 </a>
-                <nav class="nav-menu">
-                    <a href="home.html">Home</a>
-                    <a href="../quizzes/quizzes.html">Quizzes</a>
-                    <a href="../management/management.html">Management</a>
-                    <a href="about.html" class="active">About</a>
-                    <a href="../home/contact.html">Contact</a>
+                <nav class="flex gap-8">
+                    <a href="home.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Home</a>
+                    <a href="../quizzes/quizzes.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Quizzes</a>
+                    <a href="../management/management.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Management</a>
+                    <a href="about.html" class="text-blue-500 font-medium">About</a>
+                    <a href="../home/contact.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Contact</a>
                 </nav>
-                <div class="auth-menu">
-                    <a href="../auth/login.html" class="login-btn">Login</a>
-                    <a href="../auth/register.html" class="register-btn">Register</a>
+                <div class="flex gap-4">
+                    <a href="../auth/login.html" class="px-5 py-2 text-gray-600 font-medium hover:text-blue-500 transition-colors">Login</a>
+                    <a href="../auth/register.html" class="px-5 py-2 bg-blue-500 text-white rounded font-medium hover:bg-blue-600 transition-colors">Register</a>
                 </div>
-                <div class="user-menu" style="display: none;">
-                    <div class="user-dropdown">
-                        <button class="user-avatar" id="userMenuBtn">
-                            <img src="../assets/images/user/admin.png" alt="User Avatar" id="userAvatar">
+                <div class="hidden">
+                    <div class="relative">
+                        <button class="w-10 h-10 rounded-full border-2 border-blue-500 cursor-pointer hover:border-blue-600 hover:scale-105 transition-all overflow-hidden p-0 bg-transparent" id="userMenuBtn">
+                            <img src="../assets/images/user/admin.png" alt="User Avatar" id="userAvatar" class="w-full h-full object-cover">
                         </button>
-                        <div class="user-dropdown-menu" id="userDropdownMenu">
-                            <a href="../profile/profile.html">Tuyên Lê</a>
-                            <a href="../profile/change-password.html">Change Password</a>
-                            <a href="#" id="logoutBtn">Logout</a>
+                        <div class="user-dropdown-menu absolute top-full mt-2.5 right-0 bg-white rounded-lg shadow-lg min-w-[180px] opacity-0 invisible translate-y-[-10px] transition-all z-50" id="userDropdownMenu">
+                            <div class="absolute top-[-8px] right-[15px] w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-b-8 border-b-white"></div>
+                            <a href="../profile/profile.html" class="block px-4 py-2.5 text-gray-600 text-sm hover:bg-gray-50 hover:text-blue-500 transition-all">Tuyên Lê</a>
+                            <a href="../profile/change-password.html" class="block px-4 py-2.5 text-gray-600 text-sm hover:bg-gray-50 hover:text-blue-500 transition-all">Change Password</a>
+                            <a href="#" id="logoutBtn" class="block px-4 py-2.5 text-red-500 text-sm border-t border-gray-200 hover:bg-red-50 transition-all">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -46,113 +53,113 @@
     </header>
 
     <!-- About Section -->
-    <section class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <div class="logo">
-                        <img src="../assets/images/home/logo.png" alt="Logo">
-                        <span>Quizzes</span>
+    <section class="pt-40 pb-20 bg-white">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="flex items-start justify-between gap-20 flex-col lg:flex-row">
+                <div class="flex-1 max-w-[500px]">
+                    <div class="flex items-center gap-3 mb-8">
+                        <img src="../assets/images/home/logo.png" alt="Logo" class="w-12 h-12">
+                        <span class="text-3xl font-bold text-gray-800">Quizzes</span>
                     </div>
-                    <p class="about-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="text-base leading-relaxed text-gray-600 mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     
-                    <div class="about-contact">
-                        <h3>Contact</h3>
-                        <ul>
-                            <li>
-                                <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16">
+                    <div class="bg-gray-50 p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-5">Contact</h3>
+                        <ul class="list-none p-0 m-0">
+                            <li class="flex items-center gap-3 mb-4 text-sm text-gray-600">
+                                <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16" class="flex-shrink-0">
                                 <span>company123@gmail.com</span>
                             </li>
-                            <li>
-                                <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16">
+                            <li class="flex items-center gap-3 mb-4 text-sm text-gray-600">
+                                <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16" class="flex-shrink-0">
                                 <span>+84 643 931 3786</span>
                             </li>
-                            <li>
-                                <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16">
+                            <li class="flex items-center gap-3 text-sm text-gray-600">
+                                <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16" class="flex-shrink-0">
                                 <span>123 Xuan Thuy Street, Cau Giay, Ha Noi Viet Nam</span>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="../assets/images/home/quiz.png" alt="Quiz Illustration">
+                <div class="flex-1 flex justify-center items-center">
+                    <img src="../assets/images/home/quiz.png" alt="Quiz Illustration" class="max-w-full h-auto w-[450px]">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Team Section -->
-    <section class="team-section">
-        <div class="container">
-            <h2 class="section-title">Our Team</h2>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <img src="../assets/images/user/avatar1.png" alt="John Doe">
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-5">
+            <h2 class="text-center text-4xl font-bold text-gray-800 mb-16">Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1000px] mx-auto">
+                <div class="bg-white rounded-xl p-10 text-center shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all">
+                    <div class="w-[150px] h-[150px] mx-auto mb-6 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
+                        <img src="../assets/images/user/avatar1.png" alt="John Doe" class="w-full h-full object-cover">
                     </div>
-                    <h3>John Doe</h3>
-                    <p>Front End Developer</p>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">John Doe</h3>
+                    <p class="text-sm text-gray-500">Front End Developer</p>
                 </div>
 
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <img src="../assets/images/user/avatar2.png" alt="Jane Doe">
+                <div class="bg-white rounded-xl p-10 text-center shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all">
+                    <div class="w-[150px] h-[150px] mx-auto mb-6 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
+                        <img src="../assets/images/user/avatar2.png" alt="Jane Doe" class="w-full h-full object-cover">
                     </div>
-                    <h3>Jane Doe</h3>
-                    <p>Back End Developer</p>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Jane Doe</h3>
+                    <p class="text-sm text-gray-500">Back End Developer</p>
                 </div>
 
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <img src="../assets/images/user/avatar3.png" alt="John Smith">
+                <div class="bg-white rounded-xl p-10 text-center shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all">
+                    <div class="w-[150px] h-[150px] mx-auto mb-6 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
+                        <img src="../assets/images/user/avatar3.png" alt="John Smith" class="w-full h-full object-cover">
                     </div>
-                    <h3>John Smith</h3>
-                    <p>Full Stack Developer</p>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">John Smith</h3>
+                    <p class="text-sm text-gray-500">Full Stack Developer</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="home.html" class="logo">
-                        <img src="../assets/images/home/logo.png" alt="Logo">
+    <footer class="bg-white pt-16 pb-5 mt-20 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-10">
+                <div class="max-w-[350px]">
+                    <a href="home.html" class="flex items-center gap-2.5 text-xl font-semibold text-gray-800 mb-4">
+                        <img src="../assets/images/home/logo.png" alt="Logo" class="w-10 h-10 object-contain">
                         <span>Quizzes</span>
                     </a>
-                    <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
                 </div>
-                <div class="footer-menu">
-                    <h4>Menu</h4>
-                    <ul>
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="../quizzes/quizzes.html">Quizzes</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="../home/contact.html">Contact</a></li>
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-5">Menu</h4>
+                    <ul class="list-none">
+                        <li class="mb-3"><a href="home.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">Home</a></li>
+                        <li class="mb-3"><a href="../quizzes/quizzes.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">Quizzes</a></li>
+                        <li class="mb-3"><a href="about.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">About</a></li>
+                        <li class="mb-3"><a href="../home/contact.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li>
-                            <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16">
-                            <a href="mailto:company123@gmail.com">company123@gmail.com</a>
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-5">Contact</h4>
+                    <ul class="list-none">
+                        <li class="flex items-start gap-2.5 mb-3 text-sm text-gray-600">
+                            <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16" class="flex-shrink-0">
+                            <a href="mailto:company123@gmail.com" class="text-blue-500 hover:text-blue-600 transition-colors">company123@gmail.com</a>
                         </li>
-                        <li>
-                            <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16">
-                            <a href="tel:+84643931378">+84 643 931 3786</a>
+                        <li class="flex items-start gap-2.5 mb-3 text-sm text-gray-600">
+                            <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16" class="flex-shrink-0">
+                            <a href="tel:+84643931378" class="text-blue-500 hover:text-blue-600 transition-colors">+84 643 931 3786</a>
                         </li>
-                        <li>
-                            <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16">
-                            <a href="https://maps.google.com/?q=123+Xuan+Thuy+Street,+Cau+Giay,+Ha+Noi+Viet+Nam" target="_blank">123 Xuan Thuy Street, Cau Giay, Ha Noi Viet Nam</a>
+                        <li class="flex items-start gap-2.5 text-sm text-gray-600">
+                            <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16" class="flex-shrink-0">
+                            <a href="https://maps.google.com/?q=123+Xuan+Thuy+Street,+Cau+Giay,+Ha+Noi+Viet+Nam" target="_blank" class="text-blue-500 hover:text-blue-600 transition-colors">123 Xuan Thuy Street, Cau Giay, Ha Noi Viet Nam</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; May 2024 - ReactJS 19</p>
+            <div class="text-center pt-5 border-t border-gray-200">
+                <p class="text-sm text-gray-500">&copy; May 2024 - ReactJS 19</p>
             </div>
         </div>
     </footer>
