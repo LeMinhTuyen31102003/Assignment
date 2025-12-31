@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management - QuizApp</title>
+    <link rel="icon" href="../assets/images/favicon-16x16.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .user-dropdown-menu {
+            display: none;
+        }
+        .user-dropdown-menu.show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white overflow-auto">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-5 fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="flex items-center justify-between">
+                <a href="../home/home.html" class="flex items-center gap-2.5 text-xl font-semibold text-gray-800">
+                    <img src="../assets/images/home/logo.png" alt="Logo" class="w-10 h-10 object-contain">
+                    <span>Quizzes</span>
+                </a>
+                <nav class="flex gap-8">
+                    <a href="../home/home.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Home</a>
+                    <a href="../quizzes/quizzes.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Quizzes</a>
+                    <a href="../management/management.html" class="text-blue-500 font-medium">Management</a>
+                    <a href="../home/about.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">About</a>
+                    <a href="../home/contact.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Contact</a>
+                </nav>
+                <div class="flex gap-4">
+                    <a href="../auth/login.html" class="px-5 py-2 text-gray-600 font-medium hover:text-blue-500 transition-colors">Login</a>
+                    <a href="../auth/register.html" class="px-5 py-2 bg-blue-500 text-white rounded font-medium hover:bg-blue-600 transition-colors">Register</a>
+                </div>
+                <div class="hidden">
+                    <div class="relative">
+                        <button class="w-10 h-10 rounded-full border-2 border-blue-500 cursor-pointer hover:border-blue-600 hover:scale-105 transition-all overflow-hidden p-0 bg-transparent" id="userMenuBtn">
+                            <img src="../assets/images/user/admin.png" alt="User Avatar" id="userAvatar" class="w-full h-full object-cover">
+                        </button>
+                        <div class="user-dropdown-menu absolute top-full mt-2.5 right-0 bg-white rounded-lg shadow-lg min-w-[180px] opacity-0 invisible translate-y-[-10px] transition-all z-50" id="userDropdownMenu">
+                            <div class="absolute top-[-8px] right-[15px] w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-b-8 border-b-white"></div>
+                            <a href="../profile/profile.html" class="block px-4 py-2.5 text-gray-600 text-sm hover:bg-gray-50 hover:text-blue-500 transition-all">Tuyên Lê</a>
+                            <a href="../profile/change-password.html" class="block px-4 py-2.5 text-gray-600 text-sm hover:bg-gray-50 hover:text-blue-500 transition-all">Change Password</a>
+                            <a href="#" id="logoutBtn" class="block px-4 py-2.5 text-red-500 text-sm border-t border-gray-200 hover:bg-red-50 transition-all">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex flex-col min-h-screen bg-gray-50 pt-[68px]">
+        <!-- Sidebar -->
+        <aside class="fixed left-0 top-[68px] bottom-0 w-[250px] bg-white shadow-[2px_0_8px_rgba(0,0,0,0.05)] overflow-y-auto z-10 p-8 px-5">
+            <h3 class="text-xl font-bold text-gray-800 mb-5 pl-2.5">Menu</h3>
+            <nav class="flex flex-col gap-2">
+                <a href="quiz-management.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 text-sm font-medium rounded-lg hover:bg-blue-50 hover:text-blue-500 transition-all">
+                    <img src="../assets/images/user-management/Frame_1482_1952.png" alt="Quiz" width="20" height="20" class="flex-shrink-0">
+                    Quiz Management
+                </a>
+                <a href="question-management.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 text-sm font-medium rounded-lg hover:bg-blue-50 hover:text-blue-500 transition-all">
+                    <img src="../assets/images/user-management/Frame_1482_1956.png" alt="Question" width="20" height="20" class="flex-shrink-0">
+                    Question Management
+                </a>
+                <a href="user-management.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 text-sm font-medium rounded-lg hover:bg-blue-50 hover:text-blue-500 transition-all">
+                    <img src="../assets/images/user-management/Frame_1482_1960.png" alt="User" width="20" height="20" class="flex-shrink-0">
+                    User Management
+                </a>
+                <a href="role-management.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 text-sm font-medium rounded-lg hover:bg-blue-50 hover:text-blue-500 transition-all">
+                    <img src="../assets/images/user-management/Frame_1482_1964.png" alt="Role" width="20" height="20" class="flex-shrink-0">
+                    Role Management
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="ml-[250px] flex-1 p-8 pb-8">
+            <div class="flex flex-col items-center justify-center min-h-[60vh] text-center p-10">
+                <h1 class="text-4xl font-bold text-gray-800 mb-5">Welcome to Management Page</h1>
+                <p class="text-lg text-gray-500 max-w-[600px] leading-relaxed mb-12">
+                    This is a comprehensive management system for the Quiz application. 
+                    Please select an item from the left menu to start managing.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-[900px]">
+                    <div class="bg-white p-8 px-5 rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-[0_4px_16px_rgba(77,166,255,0.2)] transition-all">
+                        <img src="../assets/images/user-management/Frame_1482_1952.png" alt="Quiz" width="32" height="32" class="mb-4">
+                        <h3 class="text-base font-semibold text-gray-800 mb-2">Quiz Management</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Create and manage quizzes</p>
+                    </div>
+                    <div class="bg-white p-8 px-5 rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-[0_4px_16px_rgba(77,166,255,0.2)] transition-all">
+                        <img src="../assets/images/user-management/Frame_1482_1956.png" alt="Question" width="32" height="32" class="mb-4">
+                        <h3 class="text-base font-semibold text-gray-800 mb-2">Question Management</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Manage questions and answers</p>
+                    </div>
+                    <div class="bg-white p-8 px-5 rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-[0_4px_16px_rgba(77,166,255,0.2)] transition-all">
+                        <img src="../assets/images/user-management/Frame_1482_1960.png" alt="User" width="32" height="32" class="mb-4">
+                        <h3 class="text-base font-semibold text-gray-800 mb-2">User Management</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Manage system users</p>
+                    </div>
+                    <div class="bg-white p-8 px-5 rounded-xl shadow-sm hover:-translate-y-1 hover:shadow-[0_4px_16px_rgba(77,166,255,0.2)] transition-all">
+                        <img src="../assets/images/user-management/Frame_1482_1964.png" alt="Role" width="32" height="32" class="mb-4">
+                        <h3 class="text-base font-semibold text-gray-800 mb-2">Role Management</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Permissions and roles</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="ml-[250px] bg-white pt-16 pb-5 border-t border-gray-200">
+            <div class="px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-10">
+                    <div class="max-w-[350px]">
+                        <a href="../home/home.html" class="flex items-center gap-2.5 text-xl font-semibold text-gray-800 mb-4">
+                            <img src="../assets/images/home/logo.png" alt="Logo" class="w-10 h-10 object-contain">
+                            <span>Quizzes</span>
+                        </a>
+                        <p class="text-sm text-gray-500 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-5">Menu</h4>
+                        <ul class="list-none">
+                            <li class="mb-3"><a href="../home/home.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">Home</a></li>
+                            <li class="mb-3"><a href="../quizzes/quizzes.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">Quizzes</a></li>
+                            <li class="mb-3"><a href="../home/about.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">About</a></li>
+                            <li class="mb-3"><a href="../home/contact.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-5">Contact</h4>
+                        <ul class="list-none">
+                            <li class="flex items-start gap-2.5 mb-3 text-sm text-gray-600">
+                                <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16" class="flex-shrink-0">
+                                <a href="mailto:company123@gmail.com" class="text-blue-500 hover:text-blue-600 transition-colors">company123@gmail.com</a>
+                            </li>
+                            <li class="flex items-start gap-2.5 mb-3 text-sm text-gray-600">
+                                <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16" class="flex-shrink-0">
+                                <a href="tel:+84643931378" class="text-blue-500 hover:text-blue-600 transition-colors">+84 643 931 3786</a>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-gray-600">
+                                <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16" class="flex-shrink-0">
+                                <a href="https://maps.google.com/?q=123+Xuan+Thuy+Street,+Cau+Giay,+Ha+Noi+Viet+Nam" target="_blank" class="text-blue-500 hover:text-blue-600 transition-colors">123 Xuan Thuy Street, Cau Giay, Ha Noi Viet Nam</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center pt-5 border-t border-gray-200">
+                    <p class="text-sm text-gray-500">&copy; May 2024 - ReactJS 19</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/home-auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - QuizApp</title>
+    <link rel="icon" href="../assets/images/favicon-16x16.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-slide-in {
+            animation: slideIn 0.5s ease-out;
+        }
+        body {
+            background-image: url('../assets/images/auth/d0cdc9e65a2ca9c7e53886f43f0cf62356d4105f.png');
+        }
+        .form-group input.error {
+            border-color: #ff4444;
+        }
+        .error-message {
+            display: none;
+        }
+        .form-group input.error ~ .error-message {
+            display: block;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat relative font-sans">
+    <!-- Background Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/85 to-blue-600/85 z-[1]"></div>
+    
+    <div class="relative z-[2] w-full max-w-[600px] px-5">
+        <div class="bg-white rounded-xl p-10 shadow-[0_10px_40px_rgba(0,0,0,0.2)] animate-slide-in">
+            <h1 class="text-center text-gray-800 text-4xl mb-8 font-bold">Login</h1>
+            
+            <form class="flex flex-col gap-5" id="loginForm">
+                <div class="form-group flex flex-col gap-2">
+                    <label for="username" class="text-sm font-semibold text-gray-800">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required class="px-4 py-3 border border-gray-300 rounded-md text-sm transition-all outline-none placeholder-gray-400 focus:border-blue-500 focus:shadow-[0_0_0_3px_rgba(77,166,255,0.1)]">
+                    <span class="error-message text-red-500 text-xs mt-1">This field is required</span>
+                </div>
+                
+                <div class="form-group flex flex-col gap-2">
+                    <label for="password" class="text-sm font-semibold text-gray-800">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required class="px-4 py-3 border border-gray-300 rounded-md text-sm transition-all outline-none placeholder-gray-400 focus:border-blue-500 focus:shadow-[0_0_0_3px_rgba(77,166,255,0.1)]">
+                    <span class="error-message text-red-500 text-xs mt-1">This field is required</span>
+                </div>
+                
+                <div class="flex gap-3 mt-2.5 flex-col md:flex-row">
+                    <button type="button" class="flex-1 px-6 py-3 bg-white text-gray-600 border-2 border-gray-300 rounded-md text-base font-semibold cursor-pointer transition-all hover:bg-gray-50 hover:border-gray-400" onclick="window.location.href='../home/home.html'">Back to Home</button>
+                    <button type="submit" class="flex-1 px-6 py-3 bg-blue-500 text-white border-none rounded-md text-base font-semibold cursor-pointer transition-all hover:bg-blue-600 hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(77,166,255,0.4)]">Login</button>
+                </div>
+                
+                <div class="text-center mt-2.5">
+                    <a href="#" class="text-blue-500 text-sm no-underline transition-colors hover:text-blue-600 hover:underline">Forgot password?</a>
+                </div>
+            </form>
+            
+            <div class="text-center mt-6 pt-6 border-t border-gray-200 text-sm text-gray-500">
+                Don't have an account? <a href="../auth/register.html" class="text-blue-500 no-underline font-semibold transition-colors hover:text-blue-600 hover:underline">Register</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../assets/js/login.js"></script>
+</body>
+</html>

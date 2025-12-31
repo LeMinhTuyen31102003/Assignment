@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Management - QuizApp</title>
+    <link rel="icon" href="../assets/images/favicon-16x16.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .user-dropdown-menu {
+            display: none;
+        }
+        .user-dropdown-menu.show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white overflow-auto">
+    <!-- Header -->
+    <header class="bg-white shadow-md py-5 fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="flex items-center justify-between">
+                <a href="../home/home.html" class="flex items-center gap-2.5 text-xl font-semibold text-gray-800">
+                    <img src="../assets/images/home/logo.png" alt="Logo" class="w-10 h-10 object-contain">
+                    <span>Quizzes</span>
+                </a>
+                <nav class="flex gap-8">
+                    <a href="../home/home.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Home</a>
+                    <a href="../quizzes/quizzes.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Quizzes</a>
+                    <a href="../management/management.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Management</a>
+                    <a href="../home/about.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">About</a>
+                    <a href="../home/contact.html" class="text-gray-600 font-medium hover:text-blue-500 transition-colors">Contact</a>
+                </nav>
+                <div class="flex gap-4">
+                    <a href="../auth/login.html" class="px-5 py-2 text-gray-600 font-medium hover:text-blue-500 transition-colors">Login</a>
+                    <a href="../auth/register.html" class="px-5 py-2 bg-blue-500 text-white rounded font-medium hover:bg-blue-600 transition-colors">Register</a>
+                </div>
+                <div class="hidden">
+                    <div class="relative">
+                        <button class="w-10 h-10 rounded-full border-2 border-blue-500 cursor-pointer hover:border-blue-600 hover:scale-105 transition-all overflow-hidden p-0 bg-transparent" id="userMenuBtn">
+                            <img src="../assets/images/user/admin.png" alt="User Avatar" id="userAvatar" class="w-full h-full object-cover">
+                        </button>
+                        <div class="user-dropdown-menu absolute top-full mt-2.5 right-0 bg-white rounded-lg shadow-lg min-w-[180px] opacity-0 invisible translate-y-[-10px] transition-all z-50" id="userDropdownMenu">
+                            <div class="absolute top-[-8px] right-[15px] w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-b-8 border-b-white"></div>
+                            <a href="../profile/profile.html" class="block px-4 py-2.5 text-gray-600 text-sm hover:bg-gray-50 hover:text-blue-500 transition-all">Tuyên Lê</a>
+                            <a href="../profile/change-password.html" class="block px-4 py-2.5 text-gray-600 text-sm hover:bg-gray-50 hover:text-blue-500 transition-all">Change Password</a>
+                            <a href="#" id="logoutBtn" class="block px-4 py-2.5 text-red-500 text-sm border-t border-gray-200 hover:bg-red-50 transition-all">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex flex-col min-h-screen bg-gray-50 pt-[68px]">
+        <!-- Sidebar -->
+        <aside class="fixed left-0 top-[68px] bottom-0 w-[250px] bg-white shadow-[2px_0_8px_rgba(0,0,0,0.05)] overflow-y-auto z-10 p-8 px-5">
+            <h3 class="text-xl font-bold text-gray-800 mb-5 pl-2.5">Menu</h3>
+            <nav class="flex flex-col gap-2">
+                <a href="quiz-management.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 text-sm font-medium rounded-lg hover:bg-blue-50 hover:text-blue-500 transition-all">
+                    <img src="../assets/images/user-management/Frame_1482_1952.png" alt="Quiz" width="20" height="20" class="flex-shrink-0">
+                    Quiz Management
+                </a>
+                <a href="question-management.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 text-sm font-medium rounded-lg hover:bg-blue-50 hover:text-blue-500 transition-all">
+                    <img src="../assets/images/user-management/Frame_1482_1956.png" alt="Question" width="20" height="20" class="flex-shrink-0">
+                    Question Management
+                </a>
+                <a href="user-management.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 text-sm font-medium rounded-lg hover:bg-blue-50 hover:text-blue-500 transition-all">
+                    <img src="../assets/images/user-management/Frame_1482_1960.png" alt="User" width="20" height="20" class="flex-shrink-0">
+                    User Management
+                </a>
+                <a href="role-management.html" class="flex items-center gap-3 px-4 py-3 bg-blue-500 text-white text-sm font-medium rounded-lg">
+                    <img src="../assets/images/user-management/Frame_1482_1964.png" alt="Role" width="20" height="20" class="flex-shrink-0">
+                    Role Management
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="ml-[250px] flex-1 p-8 pb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Role Management</h1>
+
+            <!-- Search Section -->
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                <form class="flex flex-col gap-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Name</label>
+                            <input type="text" placeholder="Enter role name to search" id="searchName" class="px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Status</label>
+                            <div class="flex items-center gap-2 px-3.5 py-2.5 min-h-[42px]">
+                                <input type="checkbox" id="statusActive" class="w-4.5 h-4.5 cursor-pointer">
+                                <label for="statusActive" class="text-sm text-gray-600 cursor-pointer">Active</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button type="button" class="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-md text-sm font-semibold cursor-pointer hover:bg-blue-600 hover:-translate-y-0.5 hover:shadow-lg transition-all" id="btnCreate">
+                            <img src="../assets/images/user-management/Frame_1482_3473.png" alt="Create" width="16" height="16">
+                            Create
+                        </button>
+                        <div class="flex gap-3">
+                            <button type="button" class="flex items-center gap-2 px-5 py-2.5 bg-white text-gray-800 border border-gray-300 rounded-md text-sm font-semibold cursor-pointer hover:bg-gray-50 transition-all" id="btnClear">
+                                <img src="../assets/images/user-management/Frame_1482_3362.png" alt="Clear" width="16" height="16">
+                                Clear
+                            </button>
+                            <button type="button" class="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-md text-sm font-semibold cursor-pointer hover:bg-blue-600 transition-all" id="btnSearch">
+                                <img src="../assets/images/user-management/Frame_1482_3486.png" alt="Search" width="16" height="16">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Role List Table -->
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-5">Role List</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Name</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Description</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Status</th>
+                                <th class="px-3 py-3 text-left text-sm font-semibold text-gray-800 border-b-2 border-gray-300 align-middle">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="roleTableBody">
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Admin</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Full Access</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Yes</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Editor</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Editable</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Yes</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">User</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Customer</td>
+                                <td class="px-3 py-3 text-sm text-gray-600 align-middle">Yes</td>
+                                <td class="px-3 py-3 align-middle">
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 rounded-full cursor-pointer hover:bg-blue-600 hover:scale-110 hover:shadow-md transition-all p-0 border-none" title="Edit">
+                                            <img src="../assets/images/user-management/Frame_1482_5074.png" alt="Edit" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                        <button class="flex items-center justify-center w-9 h-9 bg-red-600 rounded-full cursor-pointer hover:bg-red-700 hover:scale-110 transition-all p-0 border-none" title="Delete">
+                                            <img src="../assets/images/user-management/Frame_1482_5077.png" alt="Delete" width="16" height="16" class="block brightness-0 invert">
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex justify-between items-center mt-5 gap-4 flex-wrap">
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-gray-600">Items per page:</span>
+                        <select id="itemsPerPage" class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500 cursor-pointer">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="firstPage" class="flex items-center justify-center w-9 h-9 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 transition-all bg-white">
+                            <img src="../assets/images/user-management/Frame_1482_5089.png" alt="First" width="16" height="16">
+                        </button>
+                        <button id="prevPage" class="flex items-center justify-center w-9 h-9 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 transition-all bg-white">
+                            <img src="../assets/images/user-management/Frame_1482_5093.png" alt="Previous" width="16" height="16">
+                        </button>
+                        <button class="flex items-center justify-center w-9 h-9 bg-blue-500 text-white rounded-md cursor-pointer hover:bg-blue-600 transition-all border-none font-semibold text-sm">1</button>
+                        <button class="flex items-center justify-center w-9 h-9 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 transition-all bg-white font-semibold text-sm text-gray-800">2</button>
+                        <button class="flex items-center justify-center w-9 h-9 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 transition-all bg-white font-semibold text-sm text-gray-800">3</button>
+                        <button id="nextPage" class="flex items-center justify-center w-9 h-9 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 transition-all bg-white">
+                            <img src="../assets/images/user-management/Frame_1482_5109.png" alt="Next" width="16" height="16">
+                        </button>
+                        <button id="lastPage" class="flex items-center justify-center w-9 h-9 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 transition-all bg-white">
+                            <img src="../assets/images/user-management/Frame_1482_5113.png" alt="Last" width="16" height="16">
+                        </button>
+                    </div>
+                    <div class="text-sm text-gray-600">1-10 of 32</div>
+                </div>
+            </div>
+
+            <!-- Add Role Form -->
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                <h2 class="text-xl font-bold text-gray-800 mb-5">Add Role</h2>
+                <form id="addRoleForm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Name</label>
+                            <input type="text" placeholder="Enter role name" required class="px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-semibold text-gray-800">Description</label>
+                            <input type="text" placeholder="Enter your email" required class="px-3.5 py-2.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500 transition-colors">
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mb-5">
+                        <label class="text-sm font-semibold text-gray-800">Status</label>
+                        <div class="flex items-center gap-2 px-3.5 py-2.5 min-h-[42px]">
+                            <input type="checkbox" id="roleStatusActive" class="w-4.5 h-4.5 cursor-pointer">
+                            <label for="roleStatusActive" class="text-sm text-gray-600 cursor-pointer">Active</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-3">
+                        <button type="button" id="btnCancelRole" class="flex items-center gap-2 px-5 py-2.5 bg-white text-gray-800 border border-gray-300 rounded-md text-sm font-semibold cursor-pointer hover:bg-gray-50 transition-all">
+                            <img src="../assets/images/user-management/Frame_1482_3362.png" alt="Cancel" width="16" height="16">
+                            Cancel
+                        </button>
+                        <button type="submit" class="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-md text-sm font-semibold cursor-pointer hover:bg-blue-600 transition-all">
+                            <img src="../assets/images/user-management/Frame_1482_3368.png" alt="Save" width="16" height="16">
+                            Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="ml-[250px] bg-white pt-16 pb-5 border-t border-gray-200">
+            <div class="px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-10">
+                    <div class="max-w-[350px]">
+                        <a href="../home/home.html" class="flex items-center gap-2.5 text-xl font-semibold text-gray-800 mb-4">
+                            <img src="../assets/images/home/logo.png" alt="Logo" class="w-10 h-10 object-contain">
+                            <span>Quizzes</span>
+                        </a>
+                        <p class="text-sm text-gray-500 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-5">Menu</h4>
+                        <ul class="list-none">
+                            <li class="mb-3"><a href="../home/home.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">Home</a></li>
+                            <li class="mb-3"><a href="../quizzes/quizzes.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">Quizzes</a></li>
+                            <li class="mb-3"><a href="../home/about.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">About</a></li>
+                            <li class="mb-3"><a href="../home/contact.html" class="text-sm text-blue-500 hover:text-blue-600 transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-5">Contact</h4>
+                        <ul class="list-none">
+                            <li class="flex items-start gap-2.5 mb-3 text-sm text-gray-600">
+                                <img src="../assets/images/home/mail.png" alt="Email Icon" width="16" height="16" class="flex-shrink-0">
+                                <a href="mailto:company123@gmail.com" class="text-blue-500 hover:text-blue-600 transition-colors">company123@gmail.com</a>
+                            </li>
+                            <li class="flex items-start gap-2.5 mb-3 text-sm text-gray-600">
+                                <img src="../assets/images/home/phone.png" alt="Phone Icon" width="16" height="16" class="flex-shrink-0">
+                                <a href="tel:+84643931378" class="text-blue-500 hover:text-blue-600 transition-colors">+84 643 931 3786</a>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm text-gray-600">
+                                <img src="../assets/images/home/map.png" alt="Location Icon" width="16" height="16" class="flex-shrink-0">
+                                <a href="https://maps.google.com/?q=123+Xuan+Thuy+Street,+Cau+Giay,+Ha+Noi+Viet+Nam" target="_blank" class="text-blue-500 hover:text-blue-600 transition-colors">123 Xuan Thuy Street, Cau Giay, Ha Noi Viet Nam</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center pt-5 border-t border-gray-200">
+                    <p class="text-sm text-gray-500">&copy; May 2024 - ReactJS 19</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/home-auth.js"></script>
+</body>
+</html>
